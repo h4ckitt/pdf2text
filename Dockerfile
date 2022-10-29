@@ -29,4 +29,8 @@ RUN go mod download
 
 RUN go build .
 
+RUN useradd -m nobody
+
+USER nobody
+
 CMD ["./memo"]
