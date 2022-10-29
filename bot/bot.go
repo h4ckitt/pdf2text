@@ -2,10 +2,10 @@ package bot
 
 import (
 	"github.com/h4ckitt/goTelegram"
-	"io/ioutil"
 	"log"
 	"memo/app"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -54,7 +54,9 @@ func handler(update goTelegram.Update) {
 
 		log.Println("downloaded file")
 
-		contents, err := ioutil.ReadFile(update.Message.File.FileName)
+		defer os.Remove(update.Message.File.FileName)
+
+		contents, err := os.ReadFile(update.Message.File.FileName)
 
 		if err != nil {
 			bot.SendMessage("An error occurred while processing your file, please try again later", update.Message.Chat)
