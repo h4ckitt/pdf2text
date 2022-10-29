@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update -y
 
-RUN apt install -y ca-certificates libtesseract-dev tesseract-ocr build-essential
+RUN apt install -y ca-certificates libtesseract-dev tesseract-ocr build-essential golang
 #RUN apt install -y ca-certificates build-essential
 
 #ADD go1.19.linux-amd64.tar.gz  /usr/local
